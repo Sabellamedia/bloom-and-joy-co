@@ -7,3 +7,9 @@ dist/
 secrets/
 public/images/gallery/recent/*
 !public/images/gallery/recent/.gitkeep
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
