@@ -3,7 +3,6 @@ import path from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { google } from 'googleapis';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -79,7 +78,12 @@ function altText(file) {
   return file.name
     .replace(/\.[^.]+$/, '')
     .replace(/[-_]+/g, ' ')
-    .trim() || 'Old City Detail recent work';
+    .trim() || 'Bloom and Joy Co. celebration styling';
+}
+
+async function loadGoogleApis() {
+  const { google } = await import('googleapis');
+  return google;
 }
 
 async function downloadFile(drive, fileId, destination) {
@@ -92,6 +96,7 @@ async function downloadFile(drive, fileId, destination) {
 }
 
 async function syncFromGoogleDrive(credentials) {
+  const google = await loadGoogleApis();
   const auth = new google.auth.GoogleAuth({
     credentials,
     scopes: ['https://www.googleapis.com/auth/drive.readonly'],
@@ -162,6 +167,11 @@ async function main() {
   try {
     await syncFromGoogleDrive(credentials);
   } catch (error) {
+    if (error?.code === 'ERR_MODULE_NOT_FOUND' && String(error.message).includes('googleapis')) {
+      console.log('[gallery] googleapis not installed — using existing gallery data');
+      return;
+    }
+
     console.error('[gallery] Google Drive sync failed:', error.message || error);
 
     if (fs.existsSync(feedPath)) {
