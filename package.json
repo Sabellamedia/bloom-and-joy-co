@@ -7,9 +7,12 @@
     "dev": "node scripts/sync-gallery.mjs && astro dev --host 127.0.0.1 --port 4330",
     "build": "astro build",
     "sync:gallery": "node scripts/sync-gallery.mjs",
-    "preview": "astro preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.7.0",
@@ -21,6 +24,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "googleapis": "^173.0.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^4.105.0"
   }
 }
