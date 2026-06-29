@@ -1,0 +1,48 @@
+[
+  {
+    "id": "mini-moment",
+    "title": "The Mini Moment",
+    "price": "$150",
+    "priceLabel": "From $150",
+    "badge": "Intimate celebrations",
+    "featured": false,
+    "imageKey": "mini-moment",
+    "includes": [
+      "Organic balloon garland (up to 6 ft)",
+      "Number stack or balloon accent",
+      "Up to 3 standard colors"
+    ]
+  },
+  {
+    "id": "celebration",
+    "title": "The Celebration",
+    "price": "$250",
+    "priceLabel": "From $250",
+    "badge": "Most requested",
+    "featured": true,
+    "imageKey": "celebration",
+    "includes": [
+      "Balloon garland (8–10 ft)",
+      "Backdrop rental",
+      "Pedestal rental",
+      "Up to 3 standard colors",
+      "Coordinated theme styling"
+    ]
+  },
+  {
+    "id": "signature",
+    "title": "The Signature Celebration",
+    "price": "$350",
+    "priceLabel": "From $350",
+    "badge": "Signature collection",
+    "featured": true,
+    "imageKey": "signature",
+    "includes": [
+      "Balloon garland (13–15 ft)",
+      "Up to 3 standard colors + 1 specialty color",
+      "2 arch backdrop rentals with coordinated covers",
+      "2 pedestal rentals",
+      "Custom theme styling"
+    ]
+  }
+]

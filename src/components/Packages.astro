@@ -1,0 +1,77 @@
+---
+import packages from '../data/packages.json';
+import addOns from '../data/add-ons.json';
+import images from '../data/images.json';
+import site from '../data/site.json';
+import SectionIntro from './SectionIntro.astro';
+
+type PackageImageKey = keyof typeof images.packages;
+---
+
+<section id="packages" class="section-shell bg-brand-linen">
+  <div class="mx-auto max-w-6xl px-4 md:px-6">
+    <div data-reveal>
+      <SectionIntro
+        eyebrow="Collections"
+        title="Celebration packages"
+        lead="Choose a curated collection, then personalize with bespoke add-ons. Every installation is styled to your theme, venue, and guest experience."
+      />
+    </div>
+
+    <div class="mt-16 grid items-stretch gap-8 lg:grid-cols-3">
+      {packages.map((pkg, index) => (
+        <article class="card-boutique flex h-full flex-col" data-reveal data-reveal-delay={String((index % 3) + 1)}>
+          <p class="flex min-h-[2.75rem] items-center justify-center border-b border-brand-blush-dark bg-brand-cream px-6 py-3 text-center font-heading text-[0.62rem] font-medium uppercase tracking-boutique text-brand-mauve-dark">
+            {pkg.badge ?? '\u00A0'}
+          </p>
+          <div class="relative aspect-[4/3] shrink-0 overflow-hidden bg-brand-linen">
+            <img
+              src={images.packages[pkg.imageKey as PackageImageKey]}
+              alt={pkg.title}
+              class="absolute inset-0 h-full w-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex flex-1 flex-col p-8">
+            <h3 class="font-display text-2xl font-medium text-brand-charcoal">{pkg.title}</h3>
+            <p class="mt-3 font-display text-3xl italic text-brand-mauve-dark">{pkg.priceLabel}</p>
+            <ul class="mt-6 flex-1 space-y-3 border-t border-brand-blush-dark pt-6">
+              {pkg.includes.map((item) => (
+                <li class="flex items-start gap-3 text-sm font-light text-brand-charcoal">
+                  <span class="mt-2 h-px w-3 shrink-0 bg-brand-sage"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={site.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-accent mt-8 w-full justify-center"
+            >
+              Inquire
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-20 border border-brand-blush-dark bg-white p-8 md:p-12" data-reveal>
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="section-eyebrow">À la carte</p>
+        <h3 class="mt-3 font-display text-3xl font-medium text-brand-charcoal">Refinements &amp; add-ons</h3>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {addOns.map((item) => (
+          <div class="border-t border-brand-blush-dark pt-6 text-center md:text-left">
+            <div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <h4 class="font-heading text-[0.68rem] font-medium uppercase tracking-boutique text-brand-charcoal">{item.title}</h4>
+              <span class="font-display text-xl italic text-brand-mauve-dark">{item.price}</span>
+            </div>
+            <p class="mt-3 text-sm font-light leading-relaxed text-brand-mauve-dark">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

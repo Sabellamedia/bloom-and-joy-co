@@ -1,0 +1,22 @@
+[
+  {
+    "step": "01",
+    "title": "Consultation",
+    "description": "Share your date, venue, theme, and inspiration. We discuss your vision, guest count, and the atmosphere you want to create."
+  },
+  {
+    "step": "02",
+    "title": "Design & curation",
+    "description": "Our studio develops a cohesive plan — palette, garland scale, rentals, and custom details — tailored to your celebration."
+  },
+  {
+    "step": "03",
+    "title": "Styling & installation",
+    "description": "We deliver, install, and refine every element on-site. White-glove setup so your space is polished and photo-ready."
+  },
+  {
+    "step": "04",
+    "title": "Your celebration",
+    "description": "Step back and enjoy a beautifully styled event. We handle the details so you can be fully present with your guests."
+  }
+]

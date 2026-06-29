@@ -1,0 +1,41 @@
+---
+import galleryFeed from '../data/gallery-feed.json';
+import images from '../data/images.json';
+import SocialLinks from './SocialLinks.astro';
+import SectionIntro from './SectionIntro.astro';
+
+type GalleryPost = { src: string; alt: string };
+
+const posts: GalleryPost[] =
+  galleryFeed.posts?.length > 0 ? galleryFeed.posts : images.gallery;
+---
+
+<section id="gallery" class="section-shell bg-brand-charcoal">
+  <div class="mx-auto max-w-6xl px-4 md:px-6">
+    <div data-reveal>
+      <SectionIntro
+        eyebrow="Portfolio"
+        title="Recent studio work"
+        lead="A curated look at custom garlands, coordinated themes, and celebration styling — each piece designed and installed in-house."
+        light={true}
+      />
+    </div>
+
+    <div class="mt-8 flex justify-center" data-reveal data-reveal-delay="1">
+      <SocialLinks theme="dark" />
+    </div>
+
+    <div class="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+      {posts.map((post, index) => (
+        <div class={`group overflow-hidden ${index === 0 ? 'md:col-span-2 md:row-span-2' : ''}`} data-reveal data-reveal-delay={String((index % 4) + 1)}>
+          <img
+            src={post.src}
+            alt={post.alt}
+            class="h-full min-h-[180px] w-full object-cover transition duration-700 group-hover:scale-[1.02] group-hover:opacity-90 md:min-h-[240px]"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

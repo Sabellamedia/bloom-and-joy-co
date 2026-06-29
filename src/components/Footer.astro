@@ -1,0 +1,79 @@
+---
+import site from '../data/site.json';
+import Logo from './Logo.astro';
+
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  { href: '#services', label: 'Services' },
+  { href: '#packages', label: 'Collections' },
+  { href: '#process', label: 'Process' },
+  { href: '#gallery', label: 'Portfolio' },
+  { href: '#about', label: 'Studio' },
+  { href: '#contact', label: 'Inquire' },
+];
+---
+
+<footer class="border-t border-white/10 bg-brand-charcoal py-16 text-white md:py-20">
+  <div class="mx-auto max-w-6xl px-4 md:px-6">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <Logo size="footer" />
+        <p class="mt-5 max-w-sm text-sm font-light leading-relaxed text-white/65">{site.tagline}</p>
+        <p class="mt-2 font-display text-lg italic text-brand-blush/90">{site.slogan}</p>
+        <ul class="mt-8 space-y-2 text-sm font-light">
+          <li>
+            <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="text-white/65 transition hover:text-brand-blush">
+              Instagram — @bloomandjoyjax
+            </a>
+          </li>
+          {
+            site.social.google && (
+              <li>
+                <a href={site.social.google} target="_blank" rel="noopener noreferrer" class="text-white/65 transition hover:text-brand-blush">
+                  Google Reviews
+                </a>
+              </li>
+            )
+          }
+          <li>
+            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" class="text-white/65 transition hover:text-brand-blush">
+              Facebook
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-3">
+        <p class="font-heading text-[0.68rem] font-medium uppercase tracking-boutique text-white/50">Explore</p>
+        <ul class="mt-5 space-y-3">
+          {footerLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm font-light text-white/70 transition hover:text-brand-blush">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <p class="font-heading text-[0.68rem] font-medium uppercase tracking-boutique text-white/50">Service area</p>
+        <p class="mt-5 text-sm font-light leading-relaxed text-white/65">{site.serviceArea}</p>
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline-light mt-8 inline-flex !border-white/30 !text-white hover:!bg-white hover:!text-brand-charcoal"
+        >
+          Inquire for Your Event
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-center text-xs font-light uppercase tracking-boutique text-white/40 md:flex-row md:text-left">
+      <p>© {year} {site.name}</p>
+      <a href={`https://${site.website}`} class="transition hover:text-brand-blush">{site.website}</a>
+    </div>
+  </div>
+</footer>

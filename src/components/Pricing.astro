@@ -1,0 +1,251 @@
+---
+import packages from '../data/packages.json';
+import images from '../data/images.json';
+import ceramic from '../data/pricing/ceramic.json';
+import site from '../data/site.json';
+
+type PackageImageKey = keyof typeof images.packages;
+
+const ceramicSection = ceramic.sections[0];
+const featuredPackages = packages.filter((pkg) => pkg.featured);
+const standardPackages = packages.filter((pkg) => !pkg.featured);
+---
+
+<section id="pricing" class="bg-brand-black py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="text-center">
+      <h2 class="section-heading text-white">Packages & Pricing</h2>
+      <div class="section-underline"></div>
+      <p class="mt-4 max-w-2xl mx-auto text-gray-400">Premium protection up front — full price lists below so you know exactly what to expect.</p>
+    </div>
+
+    <!-- Featured high-ticket packages -->
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      {featuredPackages.map((pkg) => (
+        <article class="relative flex flex-col overflow-hidden rounded-xl border-2 border-brand-red bg-gray-900 shadow-xl shadow-brand-red/10">
+          {pkg.badge && (
+            <span class="absolute right-4 top-4 z-10 rounded bg-brand-red px-3 py-1 font-heading text-xs font-bold uppercase tracking-wide text-white">
+              {pkg.badge}
+            </span>
+          )}
+          <img
+            src={images.packages[pkg.imageKey as PackageImageKey]}
+            alt={pkg.title}
+            class="h-44 w-full object-cover"
+            loading="lazy"
+          />
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-heading text-lg font-bold uppercase tracking-wide text-white md:text-xl">{pkg.title}</h3>
+            {pkg.headline && <p class="mt-2 text-sm font-semibold text-brand-red">{pkg.headline}</p>}
+            <p class="mt-3 text-sm leading-relaxed text-gray-300">{pkg.priceSummary}</p>
+            <div class="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
+              <a href={`#${pkg.scrollTarget}`} class="btn-primary flex-1 justify-center !py-3.5 !text-sm">
+                See Full Pricing
+              </a>
+              <a href={`tel:${site.phoneLink}`} class="inline-flex flex-1 items-center justify-center rounded-md border-2 border-white px-4 py-3.5 font-heading text-sm font-bold uppercase tracking-wider text-white transition hover:bg-white hover:text-brand-black">
+                Call to Book
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Standard packages -->
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {standardPackages.map((pkg) => (
+        <article class="flex flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900/50">
+          <img
+            src={images.packages[pkg.imageKey as PackageImageKey]}
+            alt={pkg.title}
+            class="h-32 w-full object-cover"
+            loading="lazy"
+          />
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="font-heading text-sm font-bold uppercase tracking-wide text-white">{pkg.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-gray-300">{pkg.priceSummary}</p>
+            <a href={`#${pkg.scrollTarget}`} class="btn-primary mt-auto !w-full !py-3 !text-sm text-center">
+              See Full Pricing
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Ceramic coating — first detailed section -->
+    <div id="ceramic-pricing" class="mt-16 scroll-mt-28">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Flagship Service</p>
+          <h3 class="font-heading text-xl font-bold uppercase text-white md:text-2xl">Ceramic Coating Price Sheet</h3>
+          <div class="section-underline !mx-0 mt-3"></div>
+        </div>
+        <a href={`tel:${site.phoneLink}`} class="btn-primary !px-6 !py-3 !text-sm">
+          Book Ceramic Coating
+        </a>
+      </div>
+      {ceramicSection.note && <p class="mt-4 text-sm italic text-gray-400">{ceramicSection.note}</p>}
+
+      <div class="mt-6 overflow-hidden rounded-xl border-2 border-brand-red/40 bg-gray-900/50">
+        <div class="grid gap-0 md:grid-cols-3">
+          {ceramicSection.tiers?.map((tier, i) => (
+            <div class={`relative p-6 ${i > 0 ? 'border-t md:border-t-0 md:border-l border-gray-800' : ''} ${i === 2 ? 'bg-brand-red/5' : ''}`}>
+              {i === 2 && (
+                <span class="mb-3 inline-block rounded bg-brand-red px-2 py-0.5 font-heading text-[0.65rem] font-bold uppercase tracking-wide text-white">
+                  Best Value
+                </span>
+              )}
+              <h4 class="font-heading text-sm font-bold uppercase text-white">{tier.name}</h4>
+              <p class="mt-2 font-heading text-3xl font-bold text-brand-red">{tier.price}</p>
+              <ul class="mt-4 space-y-2">
+                {tier.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm text-gray-300">
+                    <span class="text-brand-red">✓</span> {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p class="mt-4 text-center text-sm text-gray-400">
+        Combine with paint correction for the best long-term results —
+        <a href="#contact" class="text-brand-red hover:underline">request a bundled quote</a>.
+      </p>
+
+      {images.ceramicWork?.length > 0 && (
+        <div class="mt-10">
+          <h4 class="font-heading text-sm font-bold uppercase tracking-wide text-white">Recent Ceramic Coating Jobs</h4>
+          <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {images.ceramicWork.map((photo) => (
+              <div class="group overflow-hidden rounded-lg border border-gray-800">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  class="aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-105 sm:aspect-[3/4]"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- Paint correction -->
+    <div id="paint-correction-pricing" class="mt-16 scroll-mt-28">
+      <h3 class="font-heading text-xl font-bold uppercase text-white md:text-2xl">Paint Correction</h3>
+      <div class="section-underline !mx-0 mt-3"></div>
+      <p class="mt-4 max-w-2xl text-sm text-gray-400">Professional machine polishing to remove swirls, scratches, and oxidation — the foundation for ceramic coating or a mirror finish.</p>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="rounded-lg border border-gray-800 bg-gray-900/50 p-5">
+          <h4 class="font-heading text-sm font-bold uppercase text-white">One Step</h4>
+          <p class="mt-2 font-heading text-3xl font-bold text-brand-red">+$500</p>
+          <p class="mt-3 text-sm text-gray-400">Light swirl removal, enhanced gloss & clarity.</p>
+        </div>
+        <div class="rounded-lg border border-brand-red/40 bg-gray-900/50 p-5">
+          <h4 class="font-heading text-sm font-bold uppercase text-white">Two Step</h4>
+          <p class="mt-2 font-heading text-3xl font-bold text-brand-red">+$700</p>
+          <p class="mt-3 text-sm text-gray-400">Moderate correction — restores depth & shine.</p>
+        </div>
+        <div class="rounded-lg border border-gray-800 bg-gray-900/50 p-5">
+          <h4 class="font-heading text-sm font-bold uppercase text-white">Three Step</h4>
+          <p class="mt-2 font-heading text-3xl font-bold text-brand-red">+$900</p>
+          <p class="mt-3 text-sm text-gray-400">Maximum correction for heavily swirled paint.</p>
+        </div>
+      </div>
+      <div class="mt-6 text-center">
+        <a href={`tel:${site.phoneLink}`} class="btn-primary !px-8 !py-3.5">
+          Get a Correction Quote — {site.phone}
+        </a>
+      </div>
+    </div>
+
+    <!-- Basic auto detailing -->
+    <div id="auto-pricing" class="mt-16 scroll-mt-28">
+      <h3 class="font-heading text-xl font-bold uppercase text-white md:text-2xl">Auto Detail Prices</h3>
+      <div class="section-underline !mx-0 mt-3"></div>
+
+      <div class="mt-6 overflow-x-auto rounded-lg border border-gray-800">
+        <table class="w-full min-w-[480px] text-left text-sm">
+          <thead class="bg-brand-red-dark text-white">
+            <tr>
+              <th class="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide">Vehicle</th>
+              <th class="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide">Full Detail</th>
+              <th class="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide">Exterior</th>
+              <th class="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide">Interior</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-800 bg-gray-900/50 text-gray-200">
+            <tr><td class="px-4 py-3 font-semibold text-white">Sedan</td><td class="px-4 py-3 font-bold text-brand-red">$120</td><td class="px-4 py-3">$60</td><td class="px-4 py-3">$60</td></tr>
+            <tr><td class="px-4 py-3 font-semibold text-white">SUV</td><td class="px-4 py-3 font-bold text-brand-red">$150</td><td class="px-4 py-3">$75</td><td class="px-4 py-3">$70</td></tr>
+            <tr><td class="px-4 py-3 font-semibold text-white">3 Row / Trucks</td><td class="px-4 py-3 font-bold text-brand-red">$175</td><td class="px-4 py-3">$85</td><td class="px-4 py-3">$80</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-8 rounded-lg border border-gray-800 bg-gray-900/50 p-5">
+        <h4 class="font-heading text-sm font-bold uppercase text-white">Exterior Upgrades</h4>
+        <ul class="mt-4 grid gap-2 text-sm text-gray-300 sm:grid-cols-2">
+          <li class="flex justify-between border-b border-dotted border-gray-700 pb-2"><span>Silver Package</span><span class="font-semibold text-brand-red">+$55</span></li>
+          <li class="flex justify-between border-b border-dotted border-gray-700 pb-2"><span>Hand Wax</span><span class="font-semibold text-brand-red">$100</span></li>
+          <li class="flex justify-between border-b border-dotted border-gray-700 pb-2"><span>Plastic Trim Restoration</span><span class="font-semibold text-brand-red">$25</span></li>
+          <li class="flex justify-between border-b border-dotted border-gray-700 pb-2"><span>Long-Lasting Tire Coating</span><span class="font-semibold text-brand-red">$10</span></li>
+        </ul>
+        <button type="button" data-pricing="auto" class="btn-primary mt-5 !px-6 !py-3 !text-sm">
+          View All Auto Options
+        </button>
+      </div>
+    </div>
+
+    <div id="maintenance-pricing" class="mt-16 scroll-mt-28">
+      <h3 class="font-heading text-xl font-bold uppercase text-white md:text-2xl">Monthly Maintenance Plan</h3>
+      <div class="section-underline !mx-0 mt-3"></div>
+      <p class="mt-4 text-sm text-gray-400">3-month minimum · Billed monthly · We come to you</p>
+
+      <div class="mt-6 overflow-x-auto rounded-lg border border-gray-800">
+        <table class="w-full min-w-[360px] text-left text-sm">
+          <thead class="bg-brand-red-dark text-white">
+            <tr>
+              <th class="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide">Vehicle</th>
+              <th class="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide">Monthly Price</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-800 bg-gray-900/50 text-gray-200">
+            <tr><td class="px-4 py-3 font-semibold text-white">Sedan</td><td class="px-4 py-3 font-bold text-brand-red">$75 / month</td></tr>
+            <tr><td class="px-4 py-3 font-semibold text-white">SUV</td><td class="px-4 py-3 font-bold text-brand-red">$85 / month</td></tr>
+            <tr><td class="px-4 py-3 font-semibold text-white">Trucks / Large SUVs (3 Row)</td><td class="px-4 py-3 font-bold text-brand-red">$95 / month</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <button type="button" data-pricing="maintenance" class="btn-primary mt-6 !px-8 !py-3 !text-sm">
+        View Maintenance Plan Details
+      </button>
+    </div>
+
+    <p class="mt-12 text-center text-sm text-gray-500">
+      Boat, RV, golf cart &amp; airplane pricing —
+      <a href="#services" class="text-brand-red hover:underline">see services below</a>.
+    </p>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 639px) {
+    #pricing .mt-8.grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #pricing .mt-8.grid article {
+      flex-direction: row;
+    }
+    #pricing .mt-8.grid article img {
+      width: 120px;
+      height: auto;
+      min-height: 120px;
+      flex-shrink: 0;
+    }
+  }
+</style>

@@ -1,0 +1,288 @@
+---
+import services from '../data/services.json';
+import site from '../data/site.json';
+const VIDEO_URL = 'https://d2j2uxe7jasn0r.cloudfront.net/watermarks/video/NL0L5N5Rgimkt8edi/videoblocks-auto-detailing-covering-the-car-with-a-cleaning-foam_bafueq90w__557a5ca10bf083c2e53a3c770505bb9c__P360.mp4';
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old City Detail — Performance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:  #050505;
+      --ink:    #0E0E0E;
+      --slate:  #161616;
+      --red:    #E5232E;
+      --red-dk: #B01822;
+      --red-dim:rgba(229,35,46,.1);
+      --white:  #FFFFFF;
+      --offwht: #D4D4D4;
+      --muted:  #666;
+      --border: rgba(229,35,46,.18);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 300; overflow-x: hidden; }
+    h1,h2,h3,h4 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 60px; background: rgba(5,5,5,.9); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+    .nav-logo { display: flex; align-items: center; gap: .6rem; }
+    .nav-logo img { height: 30px; filter: brightness(0) invert(1); }
+    .nav-logo-text { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: .12em; color: var(--white); }
+    .nav-logo-text span { color: var(--red); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); transition: color .15s; }
+    .nav-links a:hover { color: var(--red); }
+    .nav-cta { background: var(--red); color: white; font-family: 'Barlow Condensed', sans-serif; font-size: .85rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .5rem 1.4rem; clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); transition: background .15s; }
+    .nav-cta:hover { background: var(--red-dk); }
+    @media(max-width:768px){ .nav-links{display:none;} nav{padding:0 1.25rem;} }
+
+    /* HERO */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding-top: 60px; }
+    .hero-bg { position: absolute; inset: 0; top: -15%; height: 130%; will-change: transform; }
+    .hero-bg video { width: 100%; height: 100%; object-fit: cover; opacity: .4; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(5,5,5,.9) 0%, rgba(5,5,5,.7) 55%, rgba(229,35,46,.08) 100%); }
+    .hero-stripe { position: absolute; top: 0; right: 0; width: 6px; height: 100%; background: var(--red); }
+    .hero-content { position: relative; padding: 4rem 3rem; max-width: 780px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem; }
+    .hero-eyebrow-line { width: 32px; height: 2px; background: var(--red); }
+    .hero-eyebrow-text { font-family: 'Barlow Condensed', sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--red); }
+    .hero h1 { font-size: clamp(3.5rem, 9vw, 7.5rem); font-weight: 900; line-height: .95; color: var(--white); margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--red); }
+    .hero-sub { font-size: 1rem; font-weight: 300; color: var(--offwht); opacity: .7; max-width: 440px; margin-bottom: 2.5rem; line-height: 1.6; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-red-angled { background: var(--red); color: white; font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .85rem 2.25rem; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); transition: background .15s; display: inline-flex; align-items: center; gap: .5rem; }
+    .btn-red-angled:hover { background: var(--red-dk); }
+    .btn-ghost-angled { border: 1px solid rgba(255,255,255,.25); color: var(--offwht); font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .85rem 2.25rem; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); transition: border-color .15s; }
+    .btn-ghost-angled:hover { border-color: var(--red); color: var(--red); }
+    .hero-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: .1em; color: rgba(255,255,255,.4); }
+
+    /* DIAGONAL SEPARATOR */
+    .sep { height: 64px; position: relative; overflow: hidden; }
+    .sep-a { background: var(--red); clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%); height: 100%; }
+    .sep-b { background: var(--slate); clip-path: polygon(0 100%, 100% 40%, 100% 100%); height: 100%; position: absolute; inset: 0; }
+
+    /* STATS */
+    .stats { background: var(--red); display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 1.5rem 2rem; text-align: center; border-right: 1px solid rgba(0,0,0,.15); }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 900; color: white; }
+    .stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-top: .2rem; }
+    @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} .stat:nth-child(2){border-right:none;} }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--red); margin-bottom: .5rem; display: flex; align-items: center; gap: .75rem; }
+    .section-label::before { content: '//'; color: var(--red); opacity: .6; }
+    .section-title { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 1rem; }
+    .section-title span { color: var(--red); }
+
+    /* SERVICES */
+    .services-bg { background: var(--ink); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+    .service-card { background: var(--slate); padding: 2rem; position: relative; overflow: hidden; transition: background .2s; border-left: 3px solid transparent; }
+    .service-card:hover { background: #1C1C1C; border-left-color: var(--red); }
+    .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--border); }
+    .svc-num { font-family: 'Barlow Condensed', sans-serif; font-size: 4rem; font-weight: 900; color: var(--red); opacity: .07; line-height: 1; position: absolute; top: 1rem; right: 1.25rem; }
+    .service-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: .6rem; }
+    .service-card p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .svc-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.25rem; font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+    .svc-link:hover { text-decoration: underline; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    @media(max-width:768px){ .about-grid{grid-template-columns:1fr; gap:2.5rem;} }
+    .about-img { position: relative; }
+    .about-img img { width: 100%; height: 440px; object-fit: cover; display: block; filter: grayscale(20%) contrast(1.1); clip-path: polygon(0 0, 100% 0, 100% 92%, 96% 100%, 0 100%); }
+    .about-img-badge { position: absolute; bottom: 2.5rem; left: -1.5rem; background: var(--red); padding: 1rem 1.5rem; }
+    .about-img-badge .big { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; color: white; line-height: 1; }
+    .about-img-badge .small { font-family: 'Barlow Condensed', sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-top: .15rem; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin: 1.75rem 0 2.5rem; }
+    .feature-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .9rem; color: var(--offwht); opacity: .8; }
+    .feature-list li::before { content: '▶'; color: var(--red); font-size: .55rem; flex-shrink: 0; margin-top: .35rem; }
+
+    /* CONTACT */
+    .contact-wrap { background: var(--ink); border-top: 2px solid var(--red); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    @media(max-width:768px){ .contact-grid{grid-template-columns:1fr; gap:2.5rem;} }
+    .contact-phone-xl { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: var(--white); line-height: 1; margin: 1rem 0 2rem; }
+    .contact-phone-xl span { color: var(--red); }
+    .info-row { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .info-label { font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--red); min-width: 72px; padding-top: .1rem; }
+    .info-val { font-size: .9rem; color: var(--offwht); opacity: .75; }
+    .contact-right { background: var(--slate); padding: 2.5rem; border-left: 4px solid var(--red); }
+    .contact-right h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: .6rem; }
+    .contact-right p { font-size: .88rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.6; }
+    .contact-right .btn-block { display: block; text-align: center; margin-bottom: .75rem; }
+
+    /* FOOTER */
+    footer { background: #020202; border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .footer-logo-row { display: flex; align-items: center; gap: .6rem; }
+    .footer-logo-row img { height: 26px; filter: brightness(0) invert(1); opacity: .3; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="/logo.png" alt="Old City Detail" />
+    <span class="nav-logo-text">OLD CITY <span>DETAIL</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href={`tel:${site.phoneLink}`} class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="hero-bg">
+    <video autoplay loop muted playsinline aria-hidden="true">
+      <source src={VIDEO_URL} type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Mobile Detail · {site.location}</span>
+    </div>
+    <h1>Detailing<br /><em>Excellence.</em><br />Your Driveway.</h1>
+    <p class="hero-sub">Showroom-quality results delivered to your home, marina, or hangar. No waiting. No driving. Just results.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-red-angled">
+        Book Now
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#services" class="btn-ghost-angled">Our Services</a>
+    </div>
+    <div style="margin-top:2rem;">
+      <a href={`tel:${site.phoneLink}`} class="hero-phone">{site.phone}</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years</div></div>
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Clients Served</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Mobile</div></div>
+  <div class="stat"><div class="stat-num">★ 5.0</div><div class="stat-label">Google Rating</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="services-bg">
+  <div class="container">
+    <p class="section-label">Services</p>
+    <h2 class="section-title">Every Vehicle.<br /><span>Every Detail.</span></h2>
+    <div style="margin-bottom:2.5rem;"></div>
+    <div class="services-grid">
+      {services.map((s, i) => (
+        <div class="service-card">
+          <div class="svc-num">{String(i + 1).padStart(2, '0')}</div>
+          <h3>{s.title}</h3>
+          <p>{s.description}</p>
+          <a href="#contact" class="svc-link">Get a Quote →</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="/images/about.jpg" alt="Detailing at work" />
+        <div class="about-img-badge">
+          <div class="big">5+</div>
+          <div class="small">Years Strong</div>
+        </div>
+      </div>
+      <div>
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">We Bring the<br /><span>Detailing To You.</span></h2>
+        <ul class="feature-list">
+          <li>Fully mobile — we come to your home, office, or marina</li>
+          <li>Professional-grade, eco-conscious products</li>
+          <li>Auto, boat, RV, golf cart & airplane specialists</li>
+          <li>Flexible scheduling, 7 days a week</li>
+          <li>Fully insured and licensed</li>
+        </ul>
+        <a href="#contact" class="btn-red-angled">Book a Detail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-wrap">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label">Contact</p>
+        <a href={`tel:${site.phoneLink}`} class="contact-phone-xl"><span>{site.phone}</span></a>
+        <div class="info-row"><span class="info-label">Email</span><span class="info-val">{site.email}</span></div>
+        <div class="info-row"><span class="info-label">Hours</span><span class="info-val">{site.hours}</span></div>
+        <div class="info-row"><span class="info-label">Area</span><span class="info-val">{site.location}</span></div>
+      </div>
+      <div class="contact-right">
+        <h3>Ready to Book?</h3>
+        <p>Call or text to schedule. We'll confirm your appointment and pricing within 24 hours — no surprises.</p>
+        <a href={`tel:${site.phoneLink}`} class="btn-red-angled btn-block" style="display:block; text-align:center; clip-path:none; margin-bottom:.75rem;">
+          Call to Book — {site.phone}
+        </a>
+        <a href={`mailto:${site.email}`} class="btn-ghost-angled btn-block" style="display:block; text-align:center; clip-path:none;">
+          Send an Email
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-row">
+    <img src="/logo.png" alt="Old City Detail" />
+    <p>Old City Detail</p>
+  </div>
+  <p>© 2025 Old City Detail · {site.location}</p>
+  <p>{site.slogan}</p>
+</footer>
+
+<script>
+  const bg = document.getElementById('hero-bg');
+  const hero = bg?.closest('section');
+  if (bg && hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            const p = -rect.top / (hero.offsetHeight + window.innerHeight);
+            (bg as HTMLElement).style.transform = `translateY(${p * 25}%)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+</script>
+
+</body>
+</html>

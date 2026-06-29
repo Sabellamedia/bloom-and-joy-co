@@ -1,0 +1,30 @@
+[
+  {
+    "id": "balloon-decor",
+    "title": "Balloon Decor",
+    "description": "Organic garlands, stacks, columns, and grab-and-go balloons — designed to match your theme, venue, and vision.",
+    "imageKey": "balloon-decor",
+    "highlights": ["Organic & classic garlands", "Number stacks & accents", "Delivery & setup available"]
+  },
+  {
+    "id": "custom-party",
+    "title": "Custom Party Creations",
+    "description": "Cake toppers, cupcake toppers, banners, favor boxes, and personalized signs — all coordinated to your celebration palette.",
+    "imageKey": "custom-party",
+    "highlights": ["Fully custom color palettes", "Name & theme personalization", "Pairs with balloon styling"]
+  },
+  {
+    "id": "favors-centerpieces",
+    "title": "Favors & Centerpieces",
+    "description": "Custom centerpieces, balloon wands, personalized favors, and themed table details that make every guest feel special.",
+    "imageKey": "favors-centerpieces",
+    "highlights": ["Tablescapes & centerpieces", "Balloon wands & favors", "Kid & adult celebrations"]
+  },
+  {
+    "id": "party-rentals",
+    "title": "Party Rentals",
+    "description": "Arches, pedestals, display stands, and specialty rentals to elevate your setup and complete the look.",
+    "imageKey": "party-rentals",
+    "highlights": ["Arch & backdrop rentals", "Pedestals & display pieces", "Bundle with packages"]
+  }
+]

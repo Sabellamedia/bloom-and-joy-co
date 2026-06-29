@@ -1,0 +1,50 @@
+---
+import site from '../data/site.json';
+import images from '../data/images.json';
+import testimonials from '../data/testimonials.json';
+import TestimonialCarousel from './TestimonialCarousel';
+import SocialLinks from './SocialLinks.astro';
+import SectionIntro from './SectionIntro.astro';
+---
+
+<section id="about" class="section-shell bg-white">
+  <div class="mx-auto max-w-6xl px-4 md:px-6">
+    <div class="grid gap-16 lg:grid-cols-2 lg:items-start">
+      <div data-reveal>
+        <SectionIntro
+          eyebrow="The studio"
+          title="A boutique approach to celebration styling"
+          lead="Bloom & Joy Co. is not a party supply shop — we are a design-forward studio specializing in custom balloon artistry and coordinated event details."
+          align="left"
+        />
+
+        <p class="mt-6 max-w-xl text-sm font-light leading-relaxed text-brand-mauve-dark">
+          From intimate gatherings to signature celebrations, we partner with hosts across {site.serviceArea} who value thoughtful design, reliable execution, and spaces their guests remember.
+        </p>
+
+        <p class="mt-6 max-w-xl text-sm font-light leading-relaxed text-brand-mauve-dark">
+          Every project begins with listening — then we design, source, and install with the care of a private atelier. The result is a celebration that feels intentional, cohesive, and unmistakably yours.
+        </p>
+
+        <div class="mt-12 border-t border-brand-blush-dark pt-8">
+          <p class="mb-4 text-xs font-light uppercase tracking-boutique text-brand-mauve">Connect with the studio</p>
+          <SocialLinks theme="light" />
+        </div>
+      </div>
+
+      <div class="space-y-8 lg:sticky lg:top-28">
+        <img
+          src={images.about}
+          alt="Bloom and Joy Co. balloon decor and party styling"
+          class="w-full object-cover shadow-boutique"
+          loading="lazy"
+          data-reveal
+          data-reveal-delay="1"
+        />
+        <div class="border border-brand-blush-dark bg-brand-linen p-8 md:p-10" data-reveal data-reveal-delay="2">
+          <TestimonialCarousel client:visible testimonials={testimonials} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

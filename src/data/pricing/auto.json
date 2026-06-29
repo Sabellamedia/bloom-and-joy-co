@@ -1,0 +1,138 @@
+{
+  "title": "Auto Detail",
+  "sections": [
+    {
+      "title": "Full Detail & Basic Services",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Sedan",
+          "items": [
+            { "service": "Full Detail", "price": "$120" },
+            { "service": "Exterior", "price": "$60" },
+            { "service": "Interior", "price": "$60" }
+          ]
+        },
+        {
+          "name": "SUV",
+          "items": [
+            { "service": "Full Detail", "price": "$150" },
+            { "service": "Exterior", "price": "$75" },
+            { "service": "Interior", "price": "$70" }
+          ]
+        },
+        {
+          "name": "3 Row / Trucks",
+          "items": [
+            { "service": "Full Detail", "price": "$175" },
+            { "service": "Exterior", "price": "$85" },
+            { "service": "Interior", "price": "$80" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Exterior Packages",
+      "type": "package-columns",
+      "columns": [
+        {
+          "name": "Standard Package (Included)",
+          "features": [
+            "Full wash",
+            "Wheel cleaning & shine",
+            "Quick tire shine",
+            "Spray wax"
+          ]
+        },
+        {
+          "name": "Silver Package (+$55)",
+          "features": [
+            "Pre-wash",
+            "Contact wash",
+            "Wheel scrub & polish",
+            "Long-lasting tire coating",
+            "Plastic trim restoration",
+            "Bug & tar removal",
+            "Water spot repellent",
+            "Spray wax"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Interior Packages",
+      "type": "package-columns",
+      "columns": [
+        {
+          "name": "Standard Package (Included)",
+          "features": [
+            "Vacuum",
+            "Dust removal",
+            "Dashboard wipe-down",
+            "Seat cleaning",
+            "Door & door jamb cleaning",
+            "Window cleaning"
+          ]
+        },
+        {
+          "name": "Diamond Package (+$120)",
+          "features": [
+            "Full wash",
+            "Iron removal",
+            "Clay bar treatment",
+            "Bug & tar removal",
+            "Plastic trim restoration",
+            "Headlight sealant",
+            "Window water spot repellent",
+            "Deep wheel cleaning",
+            "Additional spray wax"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Paint Correction Packages (Add-On)",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "One Step (+$500)",
+          "description": "Removes light swirl marks, minor scratches, and oxidation. Enhances gloss and clarity."
+        },
+        {
+          "name": "Two Step (+$700)",
+          "description": "Removes moderate swirl marks, scratches, and oxidation. Restores depth, gloss, and clarity."
+        },
+        {
+          "name": "Three Step (+$900)",
+          "description": "Removes heavy swirl marks, deep scratches, and oxidation. Maximum correction and clarity."
+        }
+      ]
+    },
+    {
+      "title": "Add-On Services",
+      "type": "addon-columns",
+      "columns": [
+        {
+          "name": "Exterior Add-Ons",
+          "items": [
+            { "service": "Hand Wax", "price": "$100" },
+            { "service": "Plastic Trim Restoration", "price": "$25" },
+            { "service": "Long-Lasting Tire Coating", "price": "$10" },
+            { "service": "Scratch Spot Buffing", "price": "$30 per spot" },
+            { "service": "Buffing & Polishing", "price": "$50 per section" }
+          ]
+        },
+        {
+          "name": "Interior Add-Ons",
+          "items": [
+            { "service": "Steam Cleaning", "price": "$50" },
+            { "service": "Stain Removal", "price": "$75–100" },
+            { "service": "Interior Trim Restoration", "price": "$20" },
+            { "service": "Carpet Scrubbing", "price": "$45" },
+            { "service": "Engine Bay Cleaning", "price": "$60" }
+          ]
+        }
+      ]
+    }
+  ]
+}

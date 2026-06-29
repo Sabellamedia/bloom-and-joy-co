@@ -1,0 +1,56 @@
+{
+  "title": "Golf Cart Detailing",
+  "sections": [
+    {
+      "title": "Golf Cart Detailing",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Full Detail",
+          "price": "$65 Per Cart",
+          "description": "Full wash, interior & exterior cleaning, dash & console wipe-down, tire & wheel cleaning, shine & protect, windows, seats & all surfaces cleaned."
+        },
+        {
+          "name": "Maintenance Program",
+          "price": "$35 Per Month",
+          "description": "Keep your golf cart looking its best all year long. Includes 1 full detail per month with priority scheduling."
+        }
+      ]
+    },
+    {
+      "title": "Maintenance Program Benefits",
+      "type": "features",
+      "features": [
+        { "icon": "calendar", "title": "1 Full Detail Per Month" },
+        { "icon": "star", "title": "Priority Scheduling" },
+        { "icon": "shield", "title": "Consistent Protection" },
+        { "icon": "sparkle", "title": "Always Showroom Ready" },
+        { "icon": "dollar", "title": "Save Time & Money" }
+      ]
+    },
+    {
+      "title": "Additional Services",
+      "type": "addon-columns",
+      "columns": [
+        {
+          "name": "Exterior Add-Ons",
+          "items": [
+            { "service": "Hand Wax", "price": "$100" },
+            { "service": "Plastic Trim Restoration", "price": "$25" },
+            { "service": "Long-Lasting Tire Coating", "price": "$10" },
+            { "service": "Scratch Spot Buffing", "price": "$30 per spot" },
+            { "service": "Buffing & Polishing", "price": "$50 per section" }
+          ]
+        },
+        {
+          "name": "Interior Add-Ons",
+          "items": [
+            { "service": "Steam Cleaning", "price": "$50" },
+            { "service": "Stain Removal", "price": "$75–100" },
+            { "service": "Interior Trim Restoration", "price": "$20" }
+          ]
+        }
+      ]
+    }
+  ]
+}

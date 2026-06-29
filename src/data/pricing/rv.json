@@ -1,0 +1,92 @@
+{
+  "title": "RV Detailing",
+  "sections": [
+    {
+      "title": "RV Detailing Packages",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Standard RV Wash",
+          "price": "$335",
+          "description": "Complete exterior wash & basic cleaning."
+        },
+        {
+          "name": "1-Year Protective Wax",
+          "price": "$525",
+          "description": "Full exterior wash, premium wax protection that lasts up to 1 year."
+        },
+        {
+          "name": "Ceramic Coatings",
+          "price": "Personal Quotes",
+          "description": "Custom ceramic coating solutions provided by a professional."
+        }
+      ]
+    },
+    {
+      "title": "Exterior Services",
+      "type": "package-columns",
+      "columns": [
+        {
+          "name": "Standard RV Wash",
+          "features": [
+            "Full exterior wash",
+            "Roof cleaning",
+            "Wheel & tire cleaning",
+            "Bug removal",
+            "Thorough rinse"
+          ]
+        },
+        {
+          "name": "1-Year Protective Wax",
+          "features": [
+            "Everything in Standard Wash",
+            "Premium hand-applied wax",
+            "Protects RV for up to 1 year"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Interior Services",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Interior Standard Clean",
+          "price": "$280",
+          "description": "Vacuuming, dust removal, surface wipe-down, cabinet & countertop cleaning, window cleaning, and more."
+        },
+        {
+          "name": "Interior Deep Clean",
+          "price": "$450",
+          "description": "Everything in Standard Clean plus stain treatment, leather/vinyl conditioning, carpet/rug cleaning, and odor neutralization."
+        }
+      ]
+    },
+    {
+      "title": "Add-On Services",
+      "type": "addon-columns",
+      "columns": [
+        {
+          "name": "Exterior Add-Ons",
+          "items": [
+            { "service": "Roof Treatment", "price": "$75" },
+            { "service": "Bug & Tar Removal", "price": "$50" },
+            { "service": "Awning Cleaning", "price": "$40" },
+            { "service": "Slide-Out Cleaning", "price": "$30" },
+            { "service": "Wheel & Rim Sealant", "price": "$40" }
+          ]
+        },
+        {
+          "name": "Interior Add-Ons",
+          "items": [
+            { "service": "Leather/Vinyl Conditioning", "price": "$50" },
+            { "service": "Carpet/Rug Shampoo", "price": "$75" },
+            { "service": "Odor Removal Treatment", "price": "$60" },
+            { "service": "AC Vent Cleaning", "price": "$30" },
+            { "service": "Fridge & Appliance Cleaning", "price": "$40" }
+          ]
+        }
+      ]
+    }
+  ]
+}

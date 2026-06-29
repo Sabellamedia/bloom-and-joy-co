@@ -1,0 +1,78 @@
+{
+  "title": "Airplane Detailing",
+  "sections": [
+    {
+      "title": "Exterior Wash & Wax",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Standard Exterior Wash",
+          "features": [
+            "Full exterior hand wash",
+            "Window & windshield cleaning",
+            "Landing gear & wheel wells",
+            "Rinse & blow dry"
+          ]
+        },
+        {
+          "name": "Wash & Wax",
+          "features": [
+            "Everything in Standard Wash",
+            "Hand wax & paint sealant",
+            "Streak-free polish finish",
+            "Exhaust stain removal"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Interior Detailing",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Standard Interior",
+          "features": [
+            "Full vacuum",
+            "Panel & instrument wipe-down",
+            "Seat cleaning",
+            "Window cleaning (interior)",
+            "Odor elimination"
+          ]
+        },
+        {
+          "name": "Premium Interior",
+          "features": [
+            "Everything in Standard Interior",
+            "Leather conditioning",
+            "Carpet deep clean & shampoo",
+            "Headliner cleaning",
+            "Cargo area detail"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Paint Correction & Protection",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Oxidation Removal",
+          "description": "Removes oxidation, chalky surfaces, and water staining. Restores gloss and color to painted and polished aluminum surfaces."
+        },
+        {
+          "name": "Paint Correction",
+          "description": "Removes swirl marks, light scratches, and surface contaminants. Enhances overall clarity and depth."
+        },
+        {
+          "name": "Ceramic Coating",
+          "description": "Long-lasting hydrophobic protection against UV, moisture, and corrosion. Keeps surfaces cleaner between washes."
+        }
+      ]
+    },
+    {
+      "title": "Special Notice",
+      "type": "notice",
+      "text": "All airplane detailing is custom-quoted based on aircraft size, type, and condition. Contact us for a personalized quote — we travel to your hangar or FBO."
+    }
+  ]
+}

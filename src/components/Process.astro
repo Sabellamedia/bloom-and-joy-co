@@ -1,0 +1,39 @@
+---
+import process from '../data/process.json';
+import site from '../data/site.json';
+import SectionIntro from './SectionIntro.astro';
+---
+
+<section id="process" class="section-shell bg-white">
+  <div class="mx-auto max-w-6xl px-4 md:px-6">
+    <div data-reveal>
+      <SectionIntro
+        eyebrow="Our process"
+        title="From vision to celebration"
+        lead="A thoughtful, boutique workflow — designed to feel personal, clear, and effortless from your first inquiry to the day of your event."
+      />
+    </div>
+
+    <ol class="relative mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      {process.map((item, index) => (
+        <li
+          class="relative border-t border-brand-blush-dark pt-8 lg:border-t-0 lg:border-l lg:pl-8 lg:pt-0 first:lg:border-l-0 first:lg:pl-0"
+          data-reveal
+          data-reveal-delay={String(index + 1)}
+        >
+          <span class="font-display text-5xl font-light leading-none text-brand-blush-dark">{item.step}</span>
+          <h3 class="mt-4 font-heading text-[0.68rem] font-medium uppercase tracking-boutique text-brand-charcoal">
+            {item.title}
+          </h3>
+          <p class="mt-3 text-sm font-light leading-relaxed text-brand-mauve-dark">{item.description}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-16 text-center" data-reveal data-reveal-delay="5">
+      <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" class="btn-accent">
+        Start your inquiry
+      </a>
+    </div>
+  </div>
+</section>

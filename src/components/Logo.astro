@@ -1,0 +1,16 @@
+---
+interface Props {
+  size?: 'header' | 'footer' | 'hero';
+}
+
+const { size = 'header' } = Astro.props;
+const height =
+  size === 'hero' ? 'h-28 w-28' : size === 'header' ? 'h-14 sm:h-16' : 'h-12 sm:h-14';
+---
+
+<img
+  src="/logo.jpg"
+  alt="Bloom and Joy Co. — boutique balloon decor and party styling"
+  class={`${height} w-auto object-contain ${size === 'header' ? 'max-w-[140px]' : 'max-w-[120px]'}`}
+  loading={size === 'header' ? 'eager' : 'lazy'}
+/>

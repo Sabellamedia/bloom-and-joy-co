@@ -1,0 +1,21 @@
+---
+const highlights = [
+  { title: 'Bespoke by design', text: 'Every palette, garland, and detail is curated for your vision — never off-the-shelf.' },
+  { title: 'White-glove styling', text: 'Professional delivery, installation, and finishing touches for a polished, photo-ready result.' },
+  { title: 'Curated collections', text: 'Clear package tiers with refined add-ons for hosts who value clarity and quality.' },
+  { title: 'Locally trusted', text: 'Serving Northeast Florida with the care and consistency of a boutique studio.' },
+];
+---
+
+<section class="border-y border-brand-blush-dark/70 bg-brand-linen">
+  <div class="mx-auto max-w-6xl px-4 py-14 md:py-16">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-brand-blush-dark">
+      {highlights.map((item, index) => (
+        <div class="lg:px-8 first:lg:pl-0 last:lg:pr-0" data-reveal data-reveal-delay={String(index + 1)}>
+          <h2 class="font-heading text-[0.68rem] font-medium uppercase tracking-boutique text-brand-charcoal">{item.title}</h2>
+          <p class="mt-3 text-sm font-light leading-relaxed text-brand-mauve-dark">{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

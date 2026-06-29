@@ -1,0 +1,39 @@
+---
+import site from '../data/site.json';
+---
+
+<section id="contact" class="section-shell bg-brand-blush">
+  <div class="mx-auto max-w-2xl px-4 text-center md:px-6" data-reveal>
+    <p class="section-eyebrow">Inquire</p>
+    <h2 class="section-heading mt-4">Let's design something beautiful</h2>
+    <div class="section-underline"><span></span></div>
+    <p class="section-lead mx-auto">
+      Share your date, theme, and vision. We'll recommend the right collection and bespoke details for your celebration.
+    </p>
+
+    <div class="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" class="btn-accent min-w-[220px]">
+        Request a Quote
+      </a>
+      <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="btn-secondary min-w-[220px]">
+        Instagram
+      </a>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-md border-t border-brand-blush-dark pt-8">
+      {
+        site.social.google && (
+          <a
+            href={site.social.google}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-light text-brand-mauve-dark underline-offset-4 transition hover:text-brand-charcoal hover:underline"
+          >
+            Read client reviews on Google
+          </a>
+        )
+      }
+      <p class="mt-6 text-xs font-light uppercase tracking-boutique text-brand-mauve">{site.hours}</p>
+    </div>
+  </div>
+</section>

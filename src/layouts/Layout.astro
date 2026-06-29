@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SiteClient from '../components/SiteClient';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} | Boutique Balloon Decor & Party Styling`,
+  description = `${site.name} is a boutique balloon atelier in ${site.location} — custom garlands, curated celebration packages, and white-glove party styling for hosts who expect more.`,
+} = Astro.props;
+
+const canonicalUrl = `https://${site.website}/`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  url: canonicalUrl,
+  image: `https://${site.website}/logo.jpg`,
+  description: site.tagline,
+  areaServed: site.serviceArea,
+  priceRange: '$$',
+  sameAs: [site.social.instagram, site.social.facebook, site.social.google].filter(Boolean),
+  makesOffer: [
+    { '@type': 'Offer', name: 'The Mini Moment', price: '150', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'The Celebration', price: '250', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'The Signature Celebration', price: '350', priceCurrency: 'USD' },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#EBE1E5" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`https://${site.website}/images/about.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <SiteClient client:load />
+  </body>
+</html>

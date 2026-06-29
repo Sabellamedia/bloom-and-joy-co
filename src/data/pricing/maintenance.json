@@ -1,0 +1,53 @@
+{
+  "title": "Maintenance Plan",
+  "sections": [
+    {
+      "title": "Maintenance Plan",
+      "type": "features",
+      "features": [
+        { "icon": "calendar", "title": "3 Month Commitment", "description": "Minimum 3-month plan" },
+        { "icon": "dollar", "title": "Same Low Price Every Month", "description": "Consistent monthly pricing" },
+        { "icon": "shield", "title": "Keep Your Vehicle Clean & Protected", "description": "Regular professional care" }
+      ]
+    },
+    {
+      "title": "Monthly Pricing",
+      "type": "pricing-grid",
+      "columns": [
+        { "name": "Sedan", "price": "$75", "suffix": "per month" },
+        { "name": "SUV", "price": "$85", "suffix": "per month" },
+        { "name": "Trucks / Large SUVs (3 Row)", "price": "$95", "suffix": "per month" }
+      ]
+    },
+    {
+      "title": "What's Included Each Month",
+      "type": "checklist-columns",
+      "columns": [
+        [
+          "Exterior Hand Wash",
+          "Wheel Cleaning",
+          "Tire Shine",
+          "Spray Wax Protection",
+          "Door Jambs Cleaned"
+        ],
+        [
+          "Interior Vacuum",
+          "Dashboard & Console Wipe Down",
+          "Door Panels Cleaned",
+          "Window Cleaning (Inside & Out)",
+          "Light Interior Detail"
+        ]
+      ]
+    },
+    {
+      "title": "Plan Details",
+      "type": "bullets",
+      "items": [
+        "3 month minimum commitment",
+        "Service performed once per month",
+        "Payments are auto-billed monthly",
+        "Cancel anytime after 3 months"
+      ]
+    }
+  ]
+}

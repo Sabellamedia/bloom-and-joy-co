@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+.DS_Store
+secrets/
+public/images/gallery/recent/*
+!public/images/gallery/recent/.gitkeep

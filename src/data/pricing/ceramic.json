@@ -1,0 +1,46 @@
+{
+  "title": "Ceramic Coating Price Sheet",
+  "sections": [
+    {
+      "title": "Ceramic Coating Packages",
+      "type": "ceramic-price-sheet",
+      "note": "Prices include professional application. Add to any detail package.",
+      "image": "/images/pricing/ceramic-price-sheet.jpg",
+      "tiers": [
+        {
+          "name": "Standard (1 Year)",
+          "price": "+$125",
+          "features": [
+            "Hydrophobic protection",
+            "UV protection",
+            "Enhanced gloss",
+            "Easy maintenance",
+            "1 year durability"
+          ]
+        },
+        {
+          "name": "Silver (3 Year)",
+          "price": "+$350",
+          "features": [
+            "Hydrophobic protection",
+            "UV protection",
+            "Enhanced gloss",
+            "Easy maintenance",
+            "3 year durability"
+          ]
+        },
+        {
+          "name": "Platinum (5 Year)",
+          "price": "+$500",
+          "features": [
+            "Hydrophobic protection",
+            "UV protection",
+            "Enhanced gloss",
+            "Easy maintenance",
+            "5 year durability"
+          ]
+        }
+      ]
+    }
+  ]
+}

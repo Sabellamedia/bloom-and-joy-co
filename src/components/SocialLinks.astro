@@ -1,0 +1,38 @@
+---
+import site from '../data/site.json';
+
+interface Props {
+  theme?: 'light' | 'dark';
+}
+
+const { theme = 'dark' } = Astro.props;
+
+const linkClass =
+  theme === 'dark'
+    ? 'text-sm font-light tracking-wide text-white/70 underline-offset-4 transition hover:text-brand-blush hover:underline'
+    : 'text-sm font-light tracking-wide text-brand-mauve-dark underline-offset-4 transition hover:text-brand-charcoal hover:underline';
+---
+
+<nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" aria-label="Social media">
+  {
+    site.social.instagram && (
+      <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class={linkClass}>
+        Instagram
+      </a>
+    )
+  }
+  {
+    site.social.google && (
+      <a href={site.social.google} target="_blank" rel="noopener noreferrer" class={linkClass}>
+        Google Reviews
+      </a>
+    )
+  }
+  {
+    site.social.facebook && (
+      <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" class={linkClass}>
+        Facebook
+      </a>
+    )
+  }
+</nav>

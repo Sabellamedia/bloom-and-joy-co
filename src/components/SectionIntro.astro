@@ -1,0 +1,24 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  align?: 'center' | 'left';
+  light?: boolean;
+}
+
+const { eyebrow, title, lead, align = 'center', light = false } = Astro.props;
+const alignClass = align === 'center' ? 'mx-auto text-center' : 'text-left';
+const eyebrowClass = light ? '!text-brand-blush/80' : '';
+const titleClass = light ? '!text-white' : '';
+const leadClass = light ? '!text-white/75' : '';
+---
+
+<div class={`max-w-3xl ${alignClass}`}>
+  <p class={`section-eyebrow ${eyebrowClass}`}>{eyebrow}</p>
+  <h2 class={`section-heading mt-4 ${titleClass}`} set:html={title} />
+  <div class={`section-underline ${align === 'left' ? '!mx-0 !justify-start' : ''}`}>
+    <span class={light ? '!bg-brand-blush' : ''}></span>
+  </div>
+  {lead && <p class={`section-lead ${align === 'center' ? 'mx-auto' : ''} ${leadClass}`}>{lead}</p>}
+</div>

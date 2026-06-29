@@ -1,0 +1,42 @@
+---
+import site from '../data/site.json';
+---
+
+<section id="home" class="relative min-h-[92vh] overflow-hidden bg-brand-cream">
+  <div class="absolute inset-0 bg-gradient-to-b from-brand-blush/80 via-brand-cream to-brand-linen" aria-hidden="true"></div>
+  <div
+    class="pointer-events-none absolute -right-24 top-1/4 h-72 w-72 rounded-full bg-brand-blush-dark/30 blur-3xl"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute -left-16 bottom-1/4 h-64 w-64 rounded-full bg-brand-sage/10 blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative mx-auto flex min-h-[92vh] max-w-6xl flex-col items-center justify-center px-4 py-28 text-center lg:py-36">
+    <img
+      src="/logo.jpg"
+      alt=""
+      class="mb-8 h-28 w-28 rounded-full border border-brand-blush-dark shadow-boutique-sm sm:h-32 sm:w-32"
+      aria-hidden="true"
+    />
+    <p class="section-eyebrow">{site.tagline}</p>
+    <h1 class="mt-5 max-w-4xl font-display text-5xl font-medium leading-[1.08] text-brand-charcoal md:text-6xl lg:text-7xl">
+      Elevated celebrations,<br class="hidden sm:block" /> styled with intention
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-brand-mauve-dark md:text-lg">
+      A boutique balloon atelier crafting custom garlands, coordinated party details, and photo-ready installations for discerning hosts across {site.location}.
+    </p>
+    <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+      <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" class="btn-accent min-w-[200px]">
+        Inquire for Your Event
+      </a>
+      <a href="#packages" class="btn-secondary min-w-[200px]">
+        View Collections
+      </a>
+    </div>
+    <p class="mt-10 max-w-xl text-xs font-light uppercase tracking-boutique text-brand-mauve">
+      Serving {site.serviceArea}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+{
+  "title": "Boat Detailing",
+  "sections": [
+    {
+      "title": "Boat Wash & Wax Packages",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Standard Boat Wash & Wax",
+          "price": "$20 A FOOT",
+          "features": [
+            "Thorough hand wash",
+            "Exterior hull wash",
+            "Deck & gunwale cleaning",
+            "Wax protection",
+            "Window & glass cleaning",
+            "Rinse & blow dry"
+          ]
+        },
+        {
+          "name": "Premium Boat Wash & Wax",
+          "price": "$32 A FOOT",
+          "features": [
+            "Everything in Standard",
+            "Deep hull & surface cleaning",
+            "Protective sealant wax",
+            "Streak-free finish",
+            "Interior trim & compartment cleaning",
+            "Rinse & blow dry"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Premium Add-On Services",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Oxidation & Mild Swirl Mark Correction",
+          "price": "$39 A FOOT",
+          "description": "Removes oxidation, light swirl marks, and restores color and gloss."
+        },
+        {
+          "name": "Sanding & Heavy Oxidation Removal",
+          "price": "$42 A FOOT",
+          "description": "Removes heavy oxidation, deep scratches, and restores a like-new finish."
+        },
+        {
+          "name": "Ceramic Coating Up-Charge",
+          "price": "$825 FLAT FEE",
+          "description": "Long-lasting protection with hydrophobic properties and extreme gloss."
+        }
+      ]
+    },
+    {
+      "title": "Additional Services",
+      "type": "pricing-grid",
+      "columns": [
+        {
+          "name": "Sanding & Buffing Restores",
+          "description": "Removes scratches, swirl marks, and imperfections. Restores shine and brings your boat back to life!"
+        },
+        {
+          "name": "Vinyl Seat Restore",
+          "description": "Deep cleans, conditions, and protects vinyl seats. Removes stains, discoloration, and brings back that like-new look."
+        },
+        {
+          "name": "Oxidation Removal",
+          "description": "Removes oxidation, faded chalky surfaces, and water spots. Restores color and delivers a smooth, glossy finish."
+        },
+        {
+          "name": "Custom Packages Available",
+          "description": "Have specific needs? We offer custom detailing packages tailored to your boat and preferences."
+        }
+      ]
+    },
+    {
+      "title": "Special Notice",
+      "type": "notice",
+      "text": "Vessels over 40ft require custom pricing based on size, condition, and services needed. Contact us for a personalized quote!"
+    }
+  ]
+}

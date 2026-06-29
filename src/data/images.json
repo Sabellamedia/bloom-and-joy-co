@@ -1,0 +1,28 @@
+{
+  "hero": "/images/hero/hero.jpg",
+  "about": "/images/about.jpg",
+  "services": {
+    "balloon-decor": "/images/services/balloon-decor.jpg",
+    "custom-party": "/images/services/custom-party.jpg",
+    "favors-centerpieces": "/images/services/favors-centerpieces.jpg",
+    "party-rentals": "/images/services/party-rentals.jpg"
+  },
+  "packages": {
+    "mini-moment": "/images/packages/mini-moment.jpg",
+    "celebration": "/images/packages/celebration.jpg",
+    "signature": "/images/packages/signature.jpg"
+  },
+  "gallery": [
+    { "src": "/images/gallery/01.jpg", "alt": "Custom balloon garland setup by Bloom and Joy Co." },
+    { "src": "/images/gallery/02.jpg", "alt": "Themed birthday balloon decor in Northeast Florida" },
+    { "src": "/images/gallery/03.jpg", "alt": "Organic balloon styling for a celebration" },
+    { "src": "/images/gallery/04.jpg", "alt": "Balloon backdrop and party rental styling" },
+    { "src": "/images/gallery/05.jpg", "alt": "Custom party centerpiece and balloon details" },
+    { "src": "/images/gallery/06.jpg", "alt": "Signature celebration balloon garland" },
+    { "src": "/images/gallery/07.jpg", "alt": "Coordinated party styling with balloon accents" },
+    { "src": "/images/gallery/08.jpg", "alt": "Elegant balloon decor for a special event" },
+    { "src": "/images/gallery/09.jpg", "alt": "Full party setup with rentals and garlands" },
+    { "src": "/images/gallery/10.jpg", "alt": "Personalized balloon party design" },
+    { "src": "/images/gallery/11.jpg", "alt": "Bloom and Joy Co. celebration styling" }
+  ]
+}

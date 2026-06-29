@@ -1,0 +1,290 @@
+---
+import services from '../data/services.json';
+import site from '../data/site.json';
+const VIDEO_URL = 'https://d2j2uxe7jasn0r.cloudfront.net/watermarks/video/NL0L5N5Rgimkt8edi/videoblocks-auto-detailing-covering-the-car-with-a-cleaning-foam_bafueq90w__557a5ca10bf083c2e53a3c770505bb9c__P360.mp4';
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old City Detail — Modern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:   #FFFFFF;
+      --off:     #F7F8FA;
+      --navy:    #0D1B2A;
+      --navy2:   #162233;
+      --red:     #C41230;
+      --red-dk:  #9C0E25;
+      --text:    #111827;
+      --muted:   #6B7280;
+      --border:  #E5E7EB;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; }
+    .nav-logo img { height: 32px; }
+    .nav-logo-text { font-size: .85rem; font-weight: 700; letter-spacing: .04em; color: var(--navy); }
+    .nav-logo-text span { color: var(--red); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .82rem; font-weight: 500; color: var(--muted); transition: color .15s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--red); color: white; font-size: .8rem; font-weight: 600; padding: .55rem 1.4rem; border-radius: 4px; transition: background .15s; }
+    .nav-cta:hover { background: var(--red-dk); }
+    @media(max-width:768px){ .nav-links{display:none;} nav{padding:0 1.25rem;} }
+
+    /* HERO */
+    .hero { position: relative; height: 90vh; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; top: -15%; height: 130%; will-change: transform; }
+    .hero-bg video { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(13,27,42,.92) 0%, rgba(13,27,42,.7) 50%, rgba(13,27,42,.3) 100%); }
+    .hero-content { position: relative; padding: 5rem 3rem 5rem; max-width: 700px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: var(--red); color: white; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .4rem 1rem; border-radius: 2px; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 1.05; color: white; margin-bottom: 1.25rem; }
+    .hero h1 span { color: var(--red); }
+    .hero-sub { font-size: 1rem; font-weight: 400; color: rgba(255,255,255,.75); max-width: 480px; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-red { background: var(--red); color: white; font-weight: 700; font-size: .85rem; padding: .9rem 2rem; border-radius: 4px; transition: background .15s; display: inline-flex; align-items: center; gap: .5rem; }
+    .btn-red:hover { background: var(--red-dk); }
+    .btn-outline-white { border: 2px solid rgba(255,255,255,.4); color: white; font-weight: 500; font-size: .85rem; padding: .9rem 2rem; border-radius: 4px; transition: border-color .15s; }
+    .btn-outline-white:hover { border-color: white; }
+
+    /* STATS STRIP */
+    .stats { background: var(--navy); display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { padding: 1.75rem 2rem; text-align: center; border-right: 1px solid rgba(255,255,255,.08); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 1.8rem; font-weight: 800; color: white; }
+    .stat-label { font-size: .72rem; font-weight: 500; color: rgba(255,255,255,.45); letter-spacing: .1em; text-transform: uppercase; margin-top: .25rem; }
+    @media(max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} .stat-item:nth-child(2){border-right:none;} }
+
+    /* SECTION */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .section-tag { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: .6rem; }
+    .section-title { font-size: clamp(1.9rem, 3.5vw, 2.75rem); font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 1rem; }
+    .section-sub { font-size: .95rem; color: var(--muted); max-width: 520px; margin-bottom: 3rem; }
+
+    /* SERVICES */
+    .services { background: var(--off); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem; transition: box-shadow .2s, transform .2s; }
+    .service-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.1); transform: translateY(-3px); }
+    .service-icon { width: 44px; height: 44px; background: var(--off); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .service-icon svg { width: 22px; height: 22px; stroke: var(--red); }
+    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+    .service-card p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .service-card-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.25rem; font-size: .78rem; font-weight: 600; color: var(--red); }
+    .service-card-link:hover { text-decoration: underline; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    @media(max-width:768px){ .about-grid{grid-template-columns:1fr; gap:2.5rem;} }
+    .about-img { border-radius: 12px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.12); }
+    .about-img img { width: 100%; height: 460px; object-fit: cover; display: block; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin: 1.75rem 0 2.5rem; }
+    .check-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: .9rem; color: var(--text); }
+    .check-icon { width: 20px; height: 20px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .1rem; }
+    .check-icon svg { width: 11px; height: 11px; stroke: white; stroke-width: 2.5; }
+
+    /* CONTACT */
+    .contact-section { background: var(--navy); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    @media(max-width:768px){ .contact-inner{grid-template-columns:1fr; gap:2.5rem;} }
+    .contact-section .section-tag { color: rgba(196,153,61,.9); }
+    .contact-section .section-title { color: white; }
+    .contact-section .section-sub { color: rgba(255,255,255,.55); }
+    .contact-phone-lg { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: white; margin-bottom: 1.5rem; }
+    .contact-info-grid { display: flex; flex-direction: column; gap: .9rem; }
+    .contact-row { display: flex; gap: 1rem; align-items: flex-start; font-size: .88rem; }
+    .contact-row-label { font-weight: 600; color: rgba(255,255,255,.5); min-width: 64px; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; padding-top: .1rem; }
+    .contact-row-val { color: rgba(255,255,255,.85); }
+    .contact-cta-side { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-cta-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 2rem; }
+    .contact-cta-card h3 { font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: .5rem; }
+    .contact-cta-card p { font-size: .85rem; color: rgba(255,255,255,.5); margin-bottom: 1.5rem; }
+
+    /* FOOTER */
+    footer { background: #080E16; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: .75rem; color: rgba(255,255,255,.3); }
+    .footer-logo-row { display: flex; align-items: center; gap: .6rem; }
+    .footer-logo-row img { height: 26px; opacity: .4; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="/logo.png" alt="Old City Detail" />
+    <span class="nav-logo-text">OLD CITY <span>DETAIL</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href={`tel:${site.phoneLink}`} class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="hero-bg">
+    <video autoplay loop muted playsinline aria-hidden="true">
+      <source src={VIDEO_URL} type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      {site.location}
+    </div>
+    <h1>Detailing Excellence.<br /><span>Right To Your</span> Driveway.</h1>
+    <p class="hero-sub">Premium mobile detail that comes to you. 5+ years of showroom-quality results across St. Augustine and beyond.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-red">
+        Get a Free Quote
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#services" class="btn-outline-white">View Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Years</div></div>
+  <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Clients</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Mobile</div></div>
+  <div class="stat-item"><div class="stat-num">★ 5.0</div><div class="stat-label">Google</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="container">
+    <p class="section-tag">What We Offer</p>
+    <h2 class="section-title">Every Surface, Every Vehicle.</h2>
+    <p class="section-sub">From sedans to aircraft, we bring professional-grade detailing directly to your location.</p>
+    <div class="services-grid">
+      {services.map((s) => (
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3l14 9-14 9V3z"/></svg>
+          </div>
+          <h3>{s.title}</h3>
+          <p>{s.description}</p>
+          <a href="#contact" class="service-card-link">
+            Request Quote →
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="/images/about.jpg" alt="Professional detailing" />
+      </div>
+      <div>
+        <p class="section-tag">Why Choose Us</p>
+        <h2 class="section-title">We Come To You. Always.</h2>
+        <p style="font-size:.9rem; color:var(--muted); margin-bottom:1rem;">No waiting rooms. No drop-offs. We show up at your home, office, marina, or hangar fully equipped and ready to work.</p>
+        <ul class="check-list">
+          {['100% mobile — your location, your schedule', 'Professional-grade, eco-conscious products', 'Auto, boat, RV, golf cart & airplane specialists', 'Fully insured and licensed', 'Flexible scheduling, 7 days a week'].map(item => (
+            <li>
+              <span class="check-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a href="#contact" class="btn-red" style="display:inline-flex; align-items:center; gap:.5rem;">
+          Book a Detail
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-inner">
+      <div>
+        <p class="section-tag">Get Started</p>
+        <h2 class="section-title">Ready to Book?</h2>
+        <p class="section-sub">Call or text us to schedule. We'll confirm within 24 hours.</p>
+        <a href={`tel:${site.phoneLink}`} class="contact-phone-lg">{site.phone}</a>
+        <div class="contact-info-grid">
+          <div class="contact-row"><span class="contact-row-label">Email</span><span class="contact-row-val">{site.email}</span></div>
+          <div class="contact-row"><span class="contact-row-label">Hours</span><span class="contact-row-val">{site.hours}</span></div>
+          <div class="contact-row"><span class="contact-row-label">Area</span><span class="contact-row-val">{site.location}</span></div>
+        </div>
+      </div>
+      <div class="contact-cta-side">
+        <div class="contact-cta-card">
+          <h3>Book a Full Detail</h3>
+          <p>Interior, exterior, or both. We'll confirm pricing over the phone before we arrive.</p>
+          <a href={`tel:${site.phoneLink}`} class="btn-red" style="display:inline-flex; align-items:center; gap:.5rem; width:100%; justify-content:center;">
+            Call Now — {site.phone}
+          </a>
+        </div>
+        <div class="contact-cta-card">
+          <h3>Request a Custom Quote</h3>
+          <p>RV, boat, airplane, or specialty vehicle? We'll build a package just for you.</p>
+          <a href={`mailto:${site.email}`} class="btn-outline-white" style="display:inline-flex; align-items:center; gap:.5rem; width:100%; justify-content:center; padding:.9rem 2rem; border-radius:4px;">
+            Send an Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-row">
+    <img src="/logo.png" alt="Old City Detail" />
+    <p style="color:rgba(255,255,255,.35); font-size:.8rem; font-weight:600; letter-spacing:.06em;">OLD CITY DETAIL</p>
+  </div>
+  <p>© 2025 Old City Detail · {site.location}</p>
+  <p>{site.slogan}</p>
+</footer>
+
+<script>
+  const bg = document.getElementById('hero-bg');
+  const hero = bg?.closest('section');
+  if (bg && hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            const p = -rect.top / (hero.offsetHeight + window.innerHeight);
+            (bg as HTMLElement).style.transform = `translateY(${p * 25}%)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+</script>
+
+</body>
+</html>

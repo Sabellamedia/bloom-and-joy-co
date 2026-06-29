@@ -1,0 +1,23 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { size = 'md', class: className = '' } = Astro.props;
+
+const sizes = {
+  sm: 'h-9 w-9',
+  md: 'h-11 w-11',
+  lg: 'h-14 w-14',
+};
+---
+
+<span class={`inline-block shrink-0 overflow-hidden rounded-full ${sizes[size]} ${className}`} aria-hidden="true">
+  <img
+    src="/logo.png"
+    alt=""
+    class="size-full max-w-none scale-[2.05]"
+    style="transform-origin: 50% 16%;"
+  />
+</span>
